@@ -20,30 +20,10 @@ import {
 import { UploadFile } from "antd/es/upload/interface";
 import "./App.css";
 import FileUploaderTable from "./components/FileUploaderTable";
+import UploadManagementTable from "./components/UploadManagementTable";
 import { FileData } from "./types";
 
 const { Header, Sider, Content } = Layout;
-
-const UploadManagementTable: React.FC = () => {
-  const columns = [
-    { title: "Information", dataIndex: "information", key: "information" },
-    { title: "Label", dataIndex: "label", key: "label" },
-    { title: "Macro", dataIndex: "macro", key: "macro" },
-  ];
-
-  const data = [
-    { key: "1", information: "Data000", label: "photo", macro: "photo" },
-  ];
-
-  return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-      style={{ height: 200, backgroundColor: "#fff" }}
-    />
-  );
-};
 
 const FileUploadedTable: React.FC = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
