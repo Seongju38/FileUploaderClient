@@ -3,7 +3,7 @@ import { Layout, Menu, Row, Col } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import "./App.css";
 import UploaderSection from "./containers/UploaderSection";
-import ManagementSection from "./containers/ManagementSection";
+import UploadedPreviewSection from "./containers/UploadedPreviewSection";
 import UploadedSection from "./containers/UploadedSection";
 
 const { Header, Sider, Content } = Layout;
@@ -45,7 +45,7 @@ const App: React.FC = () => {
             </Col>
             <Col span={16} className="flex flex-col">
               <Row gutter={[0, 24]}>
-                <ManagementSection />
+                <UploadedPreviewSection />
                 <UploadedSection />
               </Row>
             </Col>

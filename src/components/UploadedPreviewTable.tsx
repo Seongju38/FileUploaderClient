@@ -1,6 +1,6 @@
 import { Table } from "antd";
 
-const UploadManagementTable: React.FC = () => {
+const UploadPreviewTable: React.FC = () => {
   const columns = [
     { title: "Information", dataIndex: "information", key: "information" },
     { title: "Label", dataIndex: "label", key: "label" },
@@ -21,4 +21,4 @@ const UploadManagementTable: React.FC = () => {
   );
 };
 
-export default UploadManagementTable;
+export default UploadPreviewTable;
