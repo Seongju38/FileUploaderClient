@@ -3,11 +3,13 @@ import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import FileUploaderTable from "../components/FileUploaderTable";
 import { useState } from "react";
 import { FileData } from "../types";
+import { useFileDeleteHandler } from "../hooks/useFileDeleteHandler";
 
 const UploaderSection: React.FC = () => {
   const [fileList, setFileList] = useState<FileData[]>([]);
-  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [uploadFileList, setUploadFileList] = useState<UploadFile[]>([]);
+  const { selectedKeys, setSelectedKeys, handleDelete } =
+    useFileDeleteHandler();
 
   const handleFileChange = (info: { fileList: UploadFile[] }) => {
     setUploadFileList(info.fileList);
@@ -25,12 +27,15 @@ const UploaderSection: React.FC = () => {
     setFileList(newFileList);
   };
 
-  const handleDelete = () => {
-    setFileList(fileList.filter((file) => !selectedKeys.includes(file.key)));
-    setUploadFileList(
-      uploadFileList.filter((file) => !selectedKeys.includes(file.uid))
+  const handleDeleteFiles = () => {
+    const { updatedFileList, updatedUploadFileList } = handleDelete(
+      fileList,
+      uploadFileList
     );
-    setSelectedKeys([]);
+
+    if (updatedFileList !== undefined) setFileList(updatedFileList);
+    if (updatedUploadFileList !== undefined)
+      setUploadFileList(updatedUploadFileList);
   };
 
   return (
@@ -44,7 +49,7 @@ const UploaderSection: React.FC = () => {
         </Button>
         <Button
           className="mr-2"
-          onClick={handleDelete}
+          onClick={handleDeleteFiles}
           type="default"
           icon={<DeleteOutlined />}
           danger
