@@ -7,8 +7,10 @@ import { FileData } from "../types";
 const UploadSection: React.FC = () => {
   const [fileList, setFileList] = useState<FileData[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
+  const [uploadFileList, setUploadFileList] = useState<UploadFile[]>([]);
 
   const handleFileChange = (info: { fileList: UploadFile[] }) => {
+    setUploadFileList(info.fileList);
     const newFileList = info.fileList.map((file) => {
       const fileSize = file.size
         ? `${(file.size / 1024).toFixed(2)} KB`
@@ -24,10 +26,10 @@ const UploadSection: React.FC = () => {
   };
 
   const handleDelete = () => {
-    const updatedFileList = fileList.filter(
-      (file) => !selectedKeys.includes(file.key)
+    setFileList(fileList.filter((file) => !selectedKeys.includes(file.key)));
+    setUploadFileList(
+      uploadFileList.filter((file) => !selectedKeys.includes(file.uid))
     );
-    setFileList(updatedFileList);
     setSelectedKeys([]);
   };
 
@@ -58,6 +60,7 @@ const UploadSection: React.FC = () => {
       <div className="border-t pt-4">
         <div className="flex justify-between items-center">
           <Upload
+            fileList={uploadFileList}
             showUploadList={false}
             onChange={handleFileChange}
             multiple={true}
