@@ -4,7 +4,7 @@ import FileUploaderTable from "../components/FileUploaderTable";
 import { useState } from "react";
 import { FileData } from "../types";
 
-const UploadSection: React.FC = () => {
+const UploaderSection: React.FC = () => {
   const [fileList, setFileList] = useState<FileData[]>([]);
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [uploadFileList, setUploadFileList] = useState<UploadFile[]>([]);
@@ -79,4 +79,4 @@ const UploadSection: React.FC = () => {
   );
 };
 
-export default UploadSection;
+export default UploaderSection;
