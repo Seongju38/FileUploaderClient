@@ -12,12 +12,17 @@ const UploadPreviewTable: React.FC = () => {
   ];
 
   return (
-    <Table
-      columns={columns}
-      dataSource={data}
-      pagination={false}
-      style={{ height: 200, backgroundColor: "#fff" }}
-    />
+    <div
+      style={{ height: "calc(100vh - 690px)", overflow: "hidden" }}
+      className="mb-6"
+    >
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        style={{ height: 300, backgroundColor: "#fff" }}
+      />
+    </div>
   );
 };
 

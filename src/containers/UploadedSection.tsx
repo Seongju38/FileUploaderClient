@@ -44,7 +44,7 @@ const UploadedSection: React.FC = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full mb-6">
         <div className="flex space-x-2">
           <DatePicker
             className="w-36"
@@ -63,7 +63,7 @@ const UploadedSection: React.FC = () => {
           onSelectChange={setSelectedKeys}
         />
       </Col>
-      <div className="flex justify-end w-full">
+      <div className="flex justify-end w-full border-t pt-4">
         <Button
           className="mr-2"
           onClick={handleDeleteFiles}

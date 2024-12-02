@@ -49,7 +49,7 @@ const FileUploadedTable: React.FC<FileUploadedTableProps> = ({
   }, [fileList, tableHeight]);
 
   return (
-    <div style={{ height: "41vh", backgroundColor: "#fff" }}>
+    <div style={{ height: "calc(100vh - 571px)", backgroundColor: "#fff" }}>
       <Table
         rowSelection={rowSelection}
         columns={columns}

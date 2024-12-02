@@ -44,7 +44,7 @@ const App: React.FC = () => {
               <UploaderSection />
             </Col>
             <Col span={16} className="flex flex-col">
-              <Row gutter={[0, 24]}>
+              <Row>
                 <UploadedPreviewSection />
                 <UploadedSection />
               </Row>
