@@ -28,7 +28,9 @@
 
 export interface FileData {
   key: string;
+  num?: string;
   name: string;
+  date?: string;
   size: string;
-  progress: number;
+  progress?: number;
 }
