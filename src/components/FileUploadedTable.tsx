@@ -33,13 +33,6 @@ const FileUploadedTable: React.FC = () => {
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
-    onSelectAll: (selected: boolean, selectedRows: any[]) => {
-      if (selected) {
-        setSelectedRowKeys(data.map((item) => item.key));
-      } else {
-        setSelectedRowKeys([]);
-      }
-    },
   };
 
   useEffect(() => {

@@ -13,7 +13,6 @@ const FileUploaderTable: React.FC<FileUploaderTableProps> = ({
   selectedKeys,
   onSelectChange,
 }) => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [tableHeight, setTableHeight] = useState<number>(0);
   const [needsScroll, setNeedsScroll] = useState<boolean>(false);
   const tableRef = useRef<HTMLDivElement>(null);
