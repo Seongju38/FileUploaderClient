@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FileData } from "../types";
 import { useFileDeleteHandler } from "../hooks/useFileDeleteHandler";
 
-const UploaderSection: React.FC = () => {
+const UploaderSection = () => {
   const [fileList, setFileList] = useState<FileData[]>([]);
   const [uploadFileList, setUploadFileList] = useState<UploadFile[]>([]);
   const { selectedKeys, setSelectedKeys, handleDelete } =

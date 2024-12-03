@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const { Header, Sider, Content } = Layout;
 
-const App: React.FC = () => {
+const App = () => {
   const [isSiderCollapsed, setIsSiderCollapsed] = useState<boolean>(false);
 
   const toggleSider = () => {
@@ -41,7 +41,7 @@ interface SiderMenuProps {
   isSiderCollapsed: boolean;
 }
 
-const SiderMenu: React.FC<SiderMenuProps> = ({ isSiderCollapsed }) => {
+const SiderMenu = ({ isSiderCollapsed }: SiderMenuProps) => {
   const navigate = useNavigate();
 
   return (

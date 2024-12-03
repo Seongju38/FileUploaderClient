@@ -3,7 +3,7 @@ import UploaderSection from "./UploaderSection";
 import UploadedPreviewSection from "./UploadedPreviewSection";
 import UploadedSection from "./UploadedSection";
 
-const UploadPage: React.FC = () => {
+const UploadPage = () => {
   return (
     <div className="p-6 flex">
       <Row gutter={24}>

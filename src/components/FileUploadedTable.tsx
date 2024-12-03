@@ -8,11 +8,11 @@ interface FileUploadedTableProps {
   onSelectChange: (selectedKeys: React.Key[]) => void;
 }
 
-const FileUploadedTable: React.FC<FileUploadedTableProps> = ({
+const FileUploadedTable = ({
   fileList,
   selectedKeys,
   onSelectChange,
-}) => {
+}: FileUploadedTableProps) => {
   const [tableHeight, setTableHeight] = useState<number>(0);
   const [needsScroll, setNeedsScroll] = useState<boolean>(false);
   const tableRef = useRef<HTMLDivElement>(null);

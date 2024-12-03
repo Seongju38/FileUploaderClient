@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FileData } from "../types";
 import { useFileDeleteHandler } from "../hooks/useFileDeleteHandler";
 
-const UploadedSection: React.FC = () => {
+const UploadedSection = () => {
   const TestData = [
     {
       key: "1",

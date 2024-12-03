@@ -1,6 +1,6 @@
 import { Table } from "antd";
 
-const UploadPreviewTable: React.FC = () => {
+const UploadPreviewTable = () => {
   const columns = [
     { title: "Information", dataIndex: "information", key: "information" },
     { title: "Label", dataIndex: "label", key: "label" },
