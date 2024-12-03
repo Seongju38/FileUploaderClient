@@ -29,7 +29,7 @@ const App = () => {
         <SiderMenu isSiderCollapsed={isSiderCollapsed} />
         <Content>
           <Routes>
-            <Route path="/" element={<UploadPage />} />
+            <Route path="/file" element={<UploadPage />} />
           </Routes>
         </Content>
       </Layout>
@@ -48,12 +48,17 @@ const SiderMenu = ({ isSiderCollapsed }: SiderMenuProps) => {
     <Sider width={200} collapsed={isSiderCollapsed} className="bg-gray-50">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["/"]}
+        defaultSelectedKeys={["/file"]}
         onClick={(e) => navigate(e.key)}
         items={[
-          { key: "/", label: "Upload" },
-          { key: "/history", label: "History" },
-          { key: "/fileManagement", label: "File Management" },
+          {
+            key: "/",
+            label: "Upload",
+            children: [
+              { key: "/file", label: "File" },
+              { key: "/history", label: "History" },
+            ],
+          },
         ]}
       />
     </Sider>
