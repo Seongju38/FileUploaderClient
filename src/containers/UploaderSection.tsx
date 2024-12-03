@@ -1,9 +1,10 @@
-import { Button, Upload, UploadFile } from "antd";
+import { Button, message, Upload, UploadFile } from "antd";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import FileUploaderTable from "../components/FileUploaderTable";
 import { useState } from "react";
 import { FileData } from "../types";
 import { useFileDeleteHandler } from "../hooks/useFileDeleteHandler";
+import { RcFile } from "antd/es/upload";
 
 const UploaderSection = () => {
   const [fileList, setFileList] = useState<FileData[]>([]);
@@ -38,6 +39,14 @@ const UploaderSection = () => {
       setUploadFileList(updatedUploadFileList);
   };
 
+  const beforeUpload = (file: RcFile) => {
+    const isImage = file.type.startsWith("image/");
+    if (!isImage) {
+      message.error("Only image files can be uploaded.");
+    }
+    return isImage || Upload.LIST_IGNORE;
+  };
+
   return (
     <>
       <div className="flex items-center mb-4">
@@ -67,8 +76,10 @@ const UploaderSection = () => {
           <Upload
             fileList={uploadFileList}
             showUploadList={false}
-            onChange={handleFileChange}
             multiple={true}
+            onChange={handleFileChange}
+            listType="picture"
+            beforeUpload={beforeUpload}
           >
             <Button icon={<PlusOutlined />}>Add</Button>
           </Upload>
