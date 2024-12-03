@@ -1,5 +1,5 @@
 import { Button, message, Upload, UploadFile } from "antd";
-import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import FileUploaderTable from "../components/FileUploaderTable";
 import { useState } from "react";
 import { FileData } from "../types";
@@ -49,23 +49,9 @@ const UploaderSection = () => {
 
   return (
     <>
-      <div className="flex items-center mb-4">
-        <Button className="mr-2" type="default" icon={<EditOutlined />}>
-          Edit
-        </Button>
-        <Button className="mr-2" type="default">
-          Save
-        </Button>
-        <Button
-          className="mr-2"
-          onClick={handleDeleteFiles}
-          type="default"
-          icon={<DeleteOutlined />}
-          danger
-        >
-          Delete
-        </Button>
-      </div>
+      <h3 className="text-right mb-3">
+        Total <strong>{fileList.length}</strong>
+      </h3>
       <FileUploaderTable
         fileList={fileList}
         selectedKeys={selectedKeys}
@@ -73,16 +59,28 @@ const UploaderSection = () => {
       />
       <div className="border-t pt-4">
         <div className="flex justify-between items-center">
-          <Upload
-            fileList={uploadFileList}
-            showUploadList={false}
-            multiple={true}
-            onChange={handleFileChange}
-            listType="picture"
-            beforeUpload={beforeUpload}
-          >
-            <Button icon={<PlusOutlined />}>Add</Button>
-          </Upload>
+          <div>
+            <Upload
+              fileList={uploadFileList}
+              showUploadList={false}
+              multiple={true}
+              onChange={handleFileChange}
+              listType="picture"
+              beforeUpload={beforeUpload}
+            >
+              <Button icon={<PlusOutlined />} className="mr-2">
+                Add
+              </Button>
+            </Upload>
+            <Button
+              onClick={handleDeleteFiles}
+              type="default"
+              icon={<DeleteOutlined />}
+              danger
+            >
+              Delete
+            </Button>
+          </div>
           <div>
             <Button className="mr-2 bg-blue-500 text-white">Upload</Button>
             <Button className="bg-blue-500 text-white">
