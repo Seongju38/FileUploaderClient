@@ -54,7 +54,10 @@ const UploadedSection = () => {
           <Input className="w-36" suffix={<SearchOutlined />} />
           <Button icon={<SearchOutlined />} />
         </div>
-        <Button className="bg-blue-500 text-white" disabled>
+        <Button
+          className="bg-blue-500 text-white"
+          disabled={selectedKeys.length === 0}
+        >
           Anonymization
         </Button>
       </div>
@@ -72,11 +75,14 @@ const UploadedSection = () => {
           type="default"
           icon={<DeleteOutlined />}
           danger
-          disabled={fileList.length === 0}
+          disabled={selectedKeys.length === 0}
         >
           Delete
         </Button>
-        <Button className="bg-blue-500 text-white" disabled>
+        <Button
+          className="bg-blue-500 text-white"
+          disabled={selectedKeys.length === 0}
+        >
           Register
         </Button>
       </div>

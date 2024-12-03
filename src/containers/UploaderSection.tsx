@@ -77,16 +77,22 @@ const UploaderSection = () => {
               type="default"
               icon={<DeleteOutlined />}
               danger
-              disabled={fileList.length === 0}
+              disabled={selectedKeys.length === 0}
             >
               Delete
             </Button>
           </div>
           <div>
-            <Button className="mr-2 bg-blue-500 text-white" disabled>
+            <Button
+              className="mr-2 bg-blue-500 text-white"
+              disabled={selectedKeys.length === 0}
+            >
               Upload
             </Button>
-            <Button className="bg-blue-500 text-white" disabled>
+            <Button
+              className="bg-blue-500 text-white"
+              disabled={selectedKeys.length === 0}
+            >
               Upload & Register
             </Button>
           </div>
