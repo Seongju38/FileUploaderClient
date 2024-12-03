@@ -54,7 +54,9 @@ const UploadedSection = () => {
           <Input className="w-36" suffix={<SearchOutlined />} />
           <Button icon={<SearchOutlined />} />
         </div>
-        <Button className="bg-blue-500 text-white">Anonymization</Button>
+        <Button className="bg-blue-500 text-white" disabled>
+          Anonymization
+        </Button>
       </div>
       <Col span={24} className="flex-1">
         <FileUploadedTable
@@ -70,10 +72,13 @@ const UploadedSection = () => {
           type="default"
           icon={<DeleteOutlined />}
           danger
+          disabled={fileList.length === 0}
         >
           Delete
         </Button>
-        <Button className="bg-blue-500 text-white">Register</Button>
+        <Button className="bg-blue-500 text-white" disabled>
+          Register
+        </Button>
       </div>
     </>
   );

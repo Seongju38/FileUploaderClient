@@ -77,13 +77,16 @@ const UploaderSection = () => {
               type="default"
               icon={<DeleteOutlined />}
               danger
+              disabled={fileList.length === 0}
             >
               Delete
             </Button>
           </div>
           <div>
-            <Button className="mr-2 bg-blue-500 text-white">Upload</Button>
-            <Button className="bg-blue-500 text-white">
+            <Button className="mr-2 bg-blue-500 text-white" disabled>
+              Upload
+            </Button>
+            <Button className="bg-blue-500 text-white" disabled>
               Upload & Register
             </Button>
           </div>
