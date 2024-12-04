@@ -40,11 +40,15 @@ const UploaderSection = () => {
   };
 
   const beforeUpload = (file: RcFile) => {
-    const isImage = file.type.startsWith("image/");
-    if (!isImage) {
-      message.error("Only image files can be uploaded.");
+    const validExtensions = [".svs", ".mrxs", ".dat", ".tif"];
+    const hasValidExtension = validExtensions.some((ext) =>
+      file.name.toLowerCase().endsWith(ext)
+    );
+
+    if (!hasValidExtension) {
+      message.error("The file format is not allowed.");
+      return Upload.LIST_IGNORE;
     }
-    return isImage || Upload.LIST_IGNORE;
   };
 
   return (
@@ -65,7 +69,6 @@ const UploaderSection = () => {
               showUploadList={false}
               multiple={true}
               onChange={handleFileChange}
-              listType="picture"
               beforeUpload={beforeUpload}
             >
               <Button icon={<PlusOutlined />} className="mr-2">
