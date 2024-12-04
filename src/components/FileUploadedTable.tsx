@@ -21,6 +21,8 @@ const FileUploadedTable = ({
     { title: "No.", dataIndex: "num", key: "num" },
     { title: "File Name", dataIndex: "name", key: "name" },
     { title: "Upload Date", dataIndex: "date", key: "date" },
+    { title: "Scanner", dataIndex: "scanner", key: "scanner" },
+    { title: "Model", dataIndex: "model", key: "model" },
     { title: "Size", dataIndex: "size", key: "size" },
   ];
 

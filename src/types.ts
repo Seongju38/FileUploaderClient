@@ -33,4 +33,6 @@ export interface FileData {
   date?: string;
   size: string;
   progress?: number;
+  scanner?: string;
+  model?: string;
 }

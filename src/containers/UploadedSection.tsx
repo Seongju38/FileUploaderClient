@@ -12,6 +12,8 @@ const UploadedSection = () => {
       num: "1",
       name: "Data000",
       date: "20022222",
+      scanner: "ventana",
+      model: "vantana dp200",
       size: "24KB",
     },
     {
@@ -19,6 +21,8 @@ const UploadedSection = () => {
       num: "2",
       name: "Data0001",
       date: "20022222",
+      scanner: "ventana",
+      model: "vantana dp200",
       size: "457KB",
     },
     {
@@ -26,6 +30,8 @@ const UploadedSection = () => {
       num: "3",
       name: "Data0002",
       date: "20022222",
+      scanner: "ventana",
+      model: "vantana dp200",
       size: "15,012KB",
     },
   ];
