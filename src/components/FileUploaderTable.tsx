@@ -19,7 +19,6 @@ const FileUploaderTable = ({
 
   const columns = [
     { title: "File Name", dataIndex: "name", key: "name" },
-    { title: "Size", dataIndex: "size", key: "size" },
     {
       title: "%",
       dataIndex: "progress",
@@ -28,6 +27,7 @@ const FileUploaderTable = ({
         <Progress percent={progress} size="small" status="active" />
       ),
     },
+    { title: "Size", dataIndex: "size", key: "size" },
   ];
 
   const rowSelection = {

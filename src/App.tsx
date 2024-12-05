@@ -19,8 +19,8 @@ const App = () => {
       style={{ minWidth: "200vh", minHeight: "100vh", flexDirection: "column" }}
     >
       <Header
-        className="bg-white shadow-sm p-4 text-lg font-semibold"
-        style={{ display: "flex", alignItems: "center" }}
+        className="bg-black shadow-sm p-4 text-lg font-semibold"
+        style={{ display: "flex", alignItems: "center", color: "white" }}
       >
         <MenuOutlined className="pr-2" onClick={toggleSider} />
         INFINITT Pathology Consultation Portal

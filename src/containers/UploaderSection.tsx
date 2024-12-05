@@ -1,5 +1,10 @@
-import { Button, message, Upload, UploadFile } from "antd";
-import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button, Dropdown, Menu, message, Upload, UploadFile } from "antd";
+import {
+  DeleteOutlined,
+  PlusOutlined,
+  MoreOutlined,
+  UploadOutlined,
+} from "@ant-design/icons";
 import FileUploaderTable from "../components/FileUploaderTable";
 import { useState } from "react";
 import { FileData } from "../types";
@@ -51,17 +56,39 @@ const UploaderSection = () => {
     }
   };
 
+  const handleMenuClick = (e: { key: any }) => {
+    switch (e.key) {
+      case "import":
+        console.log("Option 1 clicked");
+        break;
+      case "importAndUpload":
+        console.log("Option 2 clicked");
+        break;
+      case "delete":
+        console.log("Option 3 clicked");
+        break;
+      default:
+        console.log("Unknown option clicked");
+    }
+  };
+
+  const moreMenuButton = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="import">Import</Menu.Item>
+      <Menu.Item key="importAndUpload">
+        <UploadOutlined className="mr-2" />
+        Import & Upload
+      </Menu.Item>
+      <Menu.Item key="delete">
+        <DeleteOutlined className="mr-2" />
+        Delete
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <>
-      <h3 className="text-right mb-3">
-        Total <strong>{fileList.length}</strong>
-      </h3>
-      <FileUploaderTable
-        fileList={fileList}
-        selectedKeys={selectedKeys}
-        onSelectChange={setSelectedKeys}
-      />
-      <div className="border-t pt-4">
+      <div className="border-t pb-4">
         <div className="flex justify-between items-center">
           <div>
             <Upload
@@ -72,7 +99,7 @@ const UploaderSection = () => {
               beforeUpload={beforeUpload}
             >
               <Button icon={<PlusOutlined />} className="mr-2">
-                Add
+                Add File
               </Button>
             </Upload>
             <Button
@@ -90,17 +117,27 @@ const UploaderSection = () => {
               className="mr-2 bg-blue-500 text-white"
               disabled={selectedKeys.length === 0}
             >
-              Upload
+              Import
             </Button>
-            <Button
-              className="bg-blue-500 text-white"
-              disabled={selectedKeys.length === 0}
-            >
-              Upload & Register
-            </Button>
+            <Dropdown overlay={moreMenuButton} trigger={["click"]}>
+              <MoreOutlined
+                style={{
+                  fontSize: "20px",
+                }}
+                onClick={(e) => e.preventDefault()}
+              />
+            </Dropdown>
           </div>
         </div>
       </div>
+      <FileUploaderTable
+        fileList={fileList}
+        selectedKeys={selectedKeys}
+        onSelectChange={setSelectedKeys}
+      />
+      <h3 className="text-right mt-2">
+        Total <strong>{fileList.length}</strong>
+      </h3>
     </>
   );
 };
