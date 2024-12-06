@@ -45,7 +45,7 @@ const UploaderSection = () => {
   };
 
   const beforeUpload = (file: RcFile) => {
-    const validTypes = [".svs", ".mrxs", ".dat", ".tif"];
+    const validTypes = [".svs", ".mrxs", ".dat", ".tif", ".ndpi", "bif"];
     const hasValidType = validTypes.some((type) =>
       file.name.toLowerCase().endsWith(type)
     );
