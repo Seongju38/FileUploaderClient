@@ -1,4 +1,12 @@
-import { Button, Dropdown, Menu, message, Upload, UploadFile } from "antd";
+import {
+  Button,
+  Dropdown,
+  Menu,
+  MenuProps,
+  message,
+  Upload,
+  UploadFile,
+} from "antd";
 import {
   DeleteOutlined,
   PlusOutlined,
@@ -72,19 +80,27 @@ const UploaderSection = () => {
     }
   };
 
-  const moreMenuButton = (
-    <Menu onClick={handleMenuClick}>
-      <Menu.Item key="import">Import</Menu.Item>
-      <Menu.Item key="importAndUpload">
-        <UploadOutlined className="mr-2" />
-        Import & Upload
-      </Menu.Item>
-      <Menu.Item key="delete">
-        <DeleteOutlined className="mr-2" />
-        Delete
-      </Menu.Item>
-    </Menu>
-  );
+  const moreMenuButton: MenuProps["items"] = [
+    { key: "import", label: "Import" },
+    {
+      key: "importAndUpload",
+      label: (
+        <>
+          <UploadOutlined className="mr-2" />
+          Import & Upload
+        </>
+      ),
+    },
+    {
+      key: "delete",
+      label: (
+        <>
+          <DeleteOutlined className="mr-2" />
+          Delete
+        </>
+      ),
+    },
+  ];
 
   return (
     <>
@@ -119,7 +135,10 @@ const UploaderSection = () => {
             >
               Import
             </Button>
-            <Dropdown overlay={moreMenuButton} trigger={["click"]}>
+            <Dropdown
+              menu={{ items: moreMenuButton, onClick: handleMenuClick }}
+              trigger={["click"]}
+            >
               <MoreOutlined
                 style={{
                   fontSize: "20px",
