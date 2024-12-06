@@ -1,4 +1,4 @@
-import { Table } from "antd";
+import { Progress, Table } from "antd";
 import { useEffect, useRef, useState } from "react";
 import { FileData } from "../types";
 
@@ -18,12 +18,19 @@ const FileUploadedTable = ({
   const tableRef = useRef<HTMLDivElement>(null);
 
   const columns = [
-    { title: "No.", dataIndex: "num", key: "num" },
-    { title: "File Name", dataIndex: "name", key: "name" },
-    { title: "Upload Date", dataIndex: "date", key: "date" },
-    { title: "Scanner", dataIndex: "scanner", key: "scanner" },
-    { title: "Model", dataIndex: "model", key: "model" },
+    { title: "File Name", dataIndex: "fileName", key: "fileName" },
+    { title: "Type", dataIndex: "fileType", key: "fileType" },
     { title: "Size", dataIndex: "size", key: "size" },
+    { title: "User Name", dataIndex: "userName", key: "userName" },
+    { title: "Upload Date", dataIndex: "uploadDate", key: "uploadDate" },
+    {
+      title: "Progress",
+      dataIndex: "progress",
+      key: "progress",
+      render: (progress: number) => (
+        <Progress percent={progress} size="small" status="active" />
+      ),
+    },
   ];
 
   const rowSelection = {
@@ -51,7 +58,7 @@ const FileUploadedTable = ({
   }, [fileList, tableHeight]);
 
   return (
-    <div style={{ height: "calc(100vh - 571px)", backgroundColor: "#fff" }}>
+    <div style={{ height: "calc(100vh - 460px)", backgroundColor: "#fff" }}>
       <Table
         rowSelection={rowSelection}
         columns={columns}

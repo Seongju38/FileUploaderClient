@@ -12,7 +12,6 @@ const UploadPage = () => {
         </Col>
         <Col span={16} className="flex flex-col">
           <Row>
-            <h3 className="mb-3 font-bold">Upload Management</h3>
             <UploadedPreviewSection />
             <UploadedSection />
           </Row>

@@ -18,7 +18,7 @@ const FileUploaderTable = ({
   const tableRef = useRef<HTMLDivElement>(null);
 
   const columns = [
-    { title: "File Name", dataIndex: "name", key: "name" },
+    { title: "File Name", dataIndex: "fileName", key: "fileName" },
     {
       title: "%",
       dataIndex: "progress",
@@ -55,7 +55,10 @@ const FileUploaderTable = ({
   }, [fileList, tableHeight]);
 
   return (
-    <div style={{ height: "75vh", backgroundColor: "#fff" }} ref={tableRef}>
+    <div
+      style={{ height: "calc(100vh - 195px)", backgroundColor: "#fff" }}
+      ref={tableRef}
+    >
       <Table
         rowSelection={rowSelection}
         columns={columns}

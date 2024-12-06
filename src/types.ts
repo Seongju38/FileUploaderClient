@@ -28,11 +28,10 @@
 
 export interface FileData {
   key: string;
-  num?: string;
-  name: string;
-  date?: string;
+  fileName: string;
+  fileType?: string;
   size: string;
-  progress?: number;
-  scanner?: string;
-  model?: string;
+  userName?: string;
+  uploadDate?: string;
+  progress: number;
 }

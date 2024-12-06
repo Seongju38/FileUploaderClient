@@ -25,9 +25,9 @@ const UploaderSection = () => {
         : "Unknown size";
       return {
         key: file.uid,
-        name: file.name,
+        fileName: file.name,
         size: fileSize,
-        progress: 100,
+        progress: 0,
       };
     });
     setFileList(newFileList);
@@ -45,12 +45,12 @@ const UploaderSection = () => {
   };
 
   const beforeUpload = (file: RcFile) => {
-    const validExtensions = [".svs", ".mrxs", ".dat", ".tif"];
-    const hasValidExtension = validExtensions.some((ext) =>
-      file.name.toLowerCase().endsWith(ext)
+    const validTypes = [".svs", ".mrxs", ".dat", ".tif"];
+    const hasValidType = validTypes.some((type) =>
+      file.name.toLowerCase().endsWith(type)
     );
 
-    if (!hasValidExtension) {
+    if (!hasValidType) {
       message.error("The file format is not allowed.");
       return Upload.LIST_IGNORE;
     }

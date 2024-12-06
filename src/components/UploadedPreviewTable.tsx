@@ -13,8 +13,8 @@ const UploadPreviewTable = () => {
 
   return (
     <div
-      style={{ height: "calc(100vh - 690px)", overflow: "hidden" }}
-      className="mb-6"
+      style={{ height: "calc(100vh - 680px)", overflow: "hidden" }}
+      className="mb-2"
     >
       <Table
         columns={columns}
