@@ -35,7 +35,7 @@ const UploadedSection = () => {
       fileType: ".bif",
       size: "1023KB",
       userName: "성춘향",
-      uploadDate: "20030305 시간도?",
+      uploadDate: "2024-12-04 14:08:24",
       progress: 100,
     },
   ];
